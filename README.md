@@ -242,6 +242,47 @@ do git add .
 git commit -m "test webhook"
 git push
 
+# to add pipeline from an SCM say github;
+instead of using the 'pipeline script' as your pipeline definition, use 'pipeline from SCM' as your pipeline definition
+
+so choose your 'SCM' = git
+provide your repo link, credentials and the branch details and save
+
+now do git add ., git commit and git git push for the jenkinsfile to be picked up
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# to be discussed later
+post {
+        always {
+            echo 'Cleaning up...'
+            sh 'terraform destroy --auto-approve'
+        }
+        success {
+            echo 'Pipeline completed successfully!'
+        }
+        failure {
+            echo 'Pipeline failed!'
+        }
+    }
+}
 
 
 
